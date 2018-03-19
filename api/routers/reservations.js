@@ -8,8 +8,8 @@ const Reservation = require('../models/reservation');
 //get all
 router.get('/', (req, res, next) => {
     Reservation.find()
-        .populate('table', 'code seat')
-        .populate('user', 'nick fullName')
+        .populate('table', 'code')
+        .populate('user', 'nick')
         .exec()
         .then(result => {
             res.status(200).json(result);
@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
         user : req.body.user,
         reff : req.body.reff,
         guest : req.body.guest,
-        //date : req.body.date,
+        date : req.body.date,
         //time : req.body.time
     });
     newReserve.save()
@@ -51,7 +51,7 @@ router.get('/:id', (req,res,next) => {
     const id = req.params.id;
     Reservation.findById(id)
     .populate('table', 'code')
-    .populate('user', 'nick fullName')
+    .populate('user', 'nick')
     .exec()
     .then(result => {
         res.status(200).json(result);
