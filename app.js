@@ -1,9 +1,9 @@
+//1
 const express = require('express');
-const app = express();
-
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+//2
+const app = express();
 //Routers
 const userRouter = require('./api/routers/users');
 const tableRouter = require('./api/routers/tables');
@@ -37,6 +37,7 @@ app.use('/api/products', productRouter);
 app.use('/api/reservations', reservationRouter);
 app.use('/api/orders', orderRouter);
 
+//3
 app.use((req, res, next) => {
     console.log("Server is Running...");
     res.status(200).json({
