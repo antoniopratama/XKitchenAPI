@@ -62,8 +62,8 @@ router.post('/', (req, res, next) => {
         //newRef = response;
         const newReservation = new Reservation({
             _id : new mongoose.Types.ObjectId(),
-            table : req.body.tableId,
-            user : req.body.userId,
+            table : req.body.table,
+            user : req.body.user,
             reference : response,
             guest : req.body.guest,
             paid: req.body.paid
